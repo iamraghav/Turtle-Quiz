@@ -19,7 +19,8 @@
             </h3>
         </div>
 
-        <div ng-controller="listCtrl as list" ng-hide="list.quizActive">
+        <!-- TURTLES LIST CONTROLLER -->
+        <div ng-controller="listCtrl as list" ng-hide="list.quizMetrics.quizActive">
           <!-- SEARCH BAR -->
           <form class="form-inline well well-sm clearfix">
             <span class="glyphicon glyphicon-search"></span>
@@ -33,7 +34,6 @@
               </button>
           </form>
 
-          <!-- TURTLES LIST -->
           <div class="row">
             <div class="col-sm-6" ng-repeat="turtle in list.data | filter:list.search">
               <div class="well well-sm">
@@ -96,8 +96,12 @@
               </div>
             </div>
           </div>
+        </div><!-- CONTROLLER ENDS HERE -->
 
-        </div>
+        <!-- QUIZ CONTROLLER -->
+        <div ng-controller="quizCtrl as quiz" ng-show="quiz.quizMetrics.quizActive">
+          <h1>Quiz</h1>
+        </div><!-- CONTROLLER ENDS HERE -->
     </div>
 
     <!-- ======================================== -->
@@ -114,8 +118,10 @@
 
     <!-- Our Application JavaScript -->
     <script src="js/app.js"></script>
+    <!-- CONTROLLERS -->
     <script src="js/controllers/list.js"></script>
-
-
+    <script src="js/controllers/quiz.js"></script>
+    <!-- FACTORIES -->
+    <script src="js/factories/quizMetrics.js"></script>
 </body>
 </html>
