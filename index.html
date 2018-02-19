@@ -19,7 +19,7 @@
             </h3>
         </div>
 
-        <div ng-controller="listCtrl as list">
+        <div ng-controller="listCtrl as list" ng-hide="list.quizActive">
           <!-- SEARCH BAR -->
           <form class="form-inline well well-sm clearfix">
             <span class="glyphicon glyphicon-search"></span>
@@ -28,6 +28,9 @@
               placeholder="Search..."
               class="form-control"
               ng-model="list.search">
+              <button class="btn btn-warning pull-right" ng-click="list.activateQuiz()">
+                <strong>Start Quiz</strong>
+              </button>
           </form>
 
           <!-- TURTLES LIST -->
