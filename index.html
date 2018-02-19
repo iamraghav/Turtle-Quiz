@@ -7,7 +7,7 @@
     <title>Quiz |</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="https://bootswatch.com/3/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/3/cerulean/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -141,12 +141,21 @@
                   <h4>
                     {{quiz.activeQuestion+1 + ". "+ quiz.dataService.quizQuestions[quiz.activeQuestion].text}}
                   </h4>
-                  <div class="row">
+                  <div class="row" ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'text'">
                     <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
-                      <h4 class="answer">
+                      <h4 class="answer"
+                      ng-class="{'bg-info': $index === quiz.dataService.quizQuestions[quiz.activeQuestion].selected}"
+                      ng-click="quiz.selectAnswer($index)">
                         {{answer.answer}}
                       </h4>
                     </div>
+                  </div>
+                  <div class="row" ng-if="quiz.dataService.quizQuestions[quiz.activeQuestion].type === 'image'">
+                      <div class="col-sm-6" ng-repeat="answer in quiz.dataService.quizQuestions[quiz.activeQuestion].possibilities">
+                        <div class="image-answer">
+                          <img ng-src="{{answer.answer}}">
+                        </div>
+                      </div>
                   </div>
                 </div>
               </div>

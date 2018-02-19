@@ -22,3 +22,22 @@
   cursor: pointer;
   border: 1px solid #333;
 }
+
+.image-answer {
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.image-answer img {
+  width: 100%;
+  height: auto;
+}
+
+.image-answer:hover {
+  cursor: pointer;
+  border: 1px solid #333;
+}
