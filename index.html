@@ -135,6 +135,11 @@
 
           <!-- QUESTION SECTION -->
           <div class="row">
+            <div class="alert alert-danger"
+            ng-show="quiz.error">
+            Error! You have not answered all of the question(s)!
+              <button ng-click="quiz.error = false" class="close">&times;</button>
+            </div>
             <h3>Question:</h3>
             <div class="well well-sm">
               <div class="row">
